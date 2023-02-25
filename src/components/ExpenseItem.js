@@ -1,5 +1,5 @@
 import React from 'react'
-
+import './ExpenseItem.css'
 export default function ExpenseItem() {
 
   const date = Date.now();
