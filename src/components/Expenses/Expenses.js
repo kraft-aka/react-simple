@@ -14,7 +14,7 @@ export default function Expenses(props) {
   return (
     <div>
     <Card className='expenses'>
-      <ExpenseFilter onExpenseFilter={expenseFilterHandler} />
+      <ExpenseFilter selected = {year} onExpenseFilter={expenseFilterHandler} />
       <ExpenseItem
       title={props.expenses[0].title}
       amount={props.expenses[0].amount}
