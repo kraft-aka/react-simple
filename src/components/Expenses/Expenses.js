@@ -1,12 +1,18 @@
 import React from 'react'
 import Card from '../UI/Card'
+import ExpenseFilter from '../ExpenseInput/ExpenseFilter'
 import ExpenseItem from './ExpenseItem'
 import './Expenses.css'
 
 export default function Expenses(props) {
 
+  const expenseFilterHandler = () => {
+    console.log('click')
+  }
   //console.log(props)
   return (
+    <div>
+      <ExpenseFilter onExpenseFilter={expenseFilterHandler}/>
     <Card className='expenses'>
       <ExpenseItem
       title={props.expenses[0].title}
@@ -29,5 +35,6 @@ export default function Expenses(props) {
       date={props.expenses[3].date}
     />
    </Card>
+   </div>
  )
 }
