@@ -3,24 +3,19 @@ import './ExpenseFilter.css'
 
 export default function ExpenseFilter(props) {
 
-  const [year, setYear] = useState('2018')
-
   const yearFilterHandler = (e) => {
-    setYear(e.target.value);
-    props.onExpenseFilter(year)
+    props.onExpenseFilter(e.target.value)
   }
-  return 
-    <form className='expenses-filter' onChange={yearFilterHandler}>
-      <label for="filter-expenses"> Filter by year</label>
-      <select id="filter" name= "expenses-years">
-        <option value={year}>2018</option>
-        <option value={year}>2019</option>
-        <option value={year}>2020</option>
-        <option value={year}>2021</option>
-        <option value={year}>2022</option>
-      </select>
-    </form>
-
-
   
+  return 
+    <div className='expenses-filter' >
+      <label for="filter-expenses"> Filter by year</label>
+      <select id="filter" name="expenses-years" onChange={yearFilterHandler}>
+        <option value='2018'>2018</option>
+        <option value='2019'>2019</option>
+        <option value='2020'>2020</option>
+        <option value='2021'>2021</option>
+        <option value='2022'>2022</option>
+      </select>
+    </div>
 }
