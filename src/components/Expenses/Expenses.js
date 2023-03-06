@@ -6,15 +6,15 @@ import './Expenses.css'
 
 export default function Expenses(props) {
 
-  const [year, setYear] = useState('2018')
+  const [filteredYear, setFilteredYear] = useState('2018')
   const expenseFilterHandler = (selectedYear) => {
-    setYear(selectedYear)
+    setFilteredYear(selectedYear)
   }
   //console.log(props)
   return (
     <div>
     <Card className='expenses'>
-      <ExpenseFilter selected = {year} onExpenseFilter={expenseFilterHandler} />
+      <ExpenseFilter selected = {filteredYear} onExpenseFilter={expenseFilterHandler} />
       <ExpenseItem
       title={props.expenses[0].title}
       amount={props.expenses[0].amount}
