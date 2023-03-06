@@ -18,6 +18,7 @@ export default function Expenses(props) {
         />
         {props.expenses.map((expense) => (
           <ExpenseItem
+            key={expense.id || expense.date}
             title={expense.title}
             amount={expense.amount}
             date={expense.date}
