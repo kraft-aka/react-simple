@@ -10,7 +10,7 @@ export default function ExpenseFilter(props) {
   return (
     <div className='expenses-filter'>
         <div className='expenses-filter__control'>
-          <label>Filter by year</label>
+          <label className='expenses-filter'>Filter by year</label>
           <select value={props.selected} onChange={yearFilterHandler}>
             <option value="2018">2018</option>
             <option value="2019">2019</option>

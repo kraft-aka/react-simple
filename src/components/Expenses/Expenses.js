@@ -11,8 +11,23 @@ export default function Expenses(props) {
   };
 
   const filteredExpenses = props.expenses.filter(
-    (expense) => expense.date.getFullYear === parseInt(filteredYear)
+    (expense) => expense.date.getFullYear().toString() === filteredYear
   );
+
+  // Holds the text if length of filteredExpenses is empty
+  let expensesContent = <p>No expenses found</p>;
+
+  // if it has items in it, it overrides the content
+  if (filteredExpenses.length > 0) {
+    expensesContent = filteredExpenses.map((expense) => (
+      <ExpenseItem
+        key={expense.id || expense.date}
+        title={expense.title}
+        amount={expense.amount}
+        date={expense.date}
+      />
+    ));
+  }
   return (
     <div>
       <Card className="expenses">
@@ -20,17 +35,7 @@ export default function Expenses(props) {
           selected={filteredYear}
           onExpenseFilter={expenseFilterHandler}
         />
-         {props.expenses.filter(expense => expense.date.getFullYear()===parseInt(filteredYear))
-          
-          .map((expense) => (
-          <ExpenseItem
-            key={expense.id || expense.date}
-            title={expense.title}
-            amount={expense.amount}
-            date={expense.date}
-          />
-        ))}
-        {filteredExpenses}
+        {expensesContent}
       </Card>
     </div>
   );
